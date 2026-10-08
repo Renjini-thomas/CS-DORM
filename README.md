@@ -252,3 +252,26 @@ CS DORM demonstrates the development of a centralized academic
 department management platform combining web technologies, database
 management, role-based access, and multiple academic administration
 modules into a single system.
+
+## 📷 Screenshots
+
+### 🔐 Login
+
+![Login](screenshorts/Screenshot 2026-10-08 081833.png)
+
+### 👨‍💼 Admin Dashboard
+
+![Admin Dashboard](screenshorts/Screenshot 2026-10-08 081846.png)
+
+### 🎓 Student Management
+
+![Student Management](screenshorts/Screenshot 2026-10-08 081856.png)
+
+### 👨‍🏫 Application for parents and students
+
+![Application](screenshorts/image.png)
+
+### Home Page
+
+![Home](screenshorts/Screenshot 2026-10-08 081856.png)
+
