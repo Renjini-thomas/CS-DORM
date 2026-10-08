@@ -257,15 +257,15 @@ modules into a single system.
 
 ### 🔐 Login
 
-![Login](screenshorts/Screenshot 2026-10-08 081833.png)
+![Login](screenshorts/Screenshot%202026-10-08%20081833.png)
 
 ### 👨‍💼 Admin Dashboard
 
-![Admin Dashboard](screenshorts/Screenshot 2026-10-08 081846.png)
+![Admin Dashboard](screenshorts/Screenshot%2026-10-08%081846.png)
 
 ### 🎓 Student Management
 
-![Student Management](screenshorts/Screenshot 2026-10-08 081856.png)
+![Student Management](screenshorts/Screenshot%202026-10-08%20081856.png)
 
 ### 👨‍🏫 Application for parents and students
 
@@ -273,5 +273,5 @@ modules into a single system.
 
 ### Home Page
 
-![Home](screenshorts/Screenshot 2026-10-08 081856.png)
+![Home](screenshorts/Screenshot%2026-10-08%081856.png)
 
