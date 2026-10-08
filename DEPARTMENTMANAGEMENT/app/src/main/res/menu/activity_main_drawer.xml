@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/homeeee"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/profileee"
+            android:title="STUDENT PROFILE" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/eventtt"
+            android:title="EVENT" />
+        <item
+            android:id="@+id/nav_NOTI"
+            android:icon="@drawable/notification"
+            android:title="NOTIFICATION" />
+        <item
+            android:id="@+id/nav_COMPLAINT"
+            android:icon="@drawable/angry"
+            android:title="COMPLAINTS" />
+        <item
+            android:id="@+id/nav_TIMETABLE"
+            android:icon="@drawable/timtab"
+            android:title="TIME TABLE" />
+        <item
+            android:id="@+id/nav_CHPASS"
+            android:icon="@drawable/resetcs"
+            android:title="CHANGE PASSWORD" />
+        <item
+            android:id="@+id/nav_LOG"
+            android:icon="@drawable/logoutcs"
+            android:title="LOGOUT" />
+    </group>
+</menu>

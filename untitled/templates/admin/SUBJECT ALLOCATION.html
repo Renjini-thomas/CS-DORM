@@ -1,0 +1,82 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>SUBJECT ALLOCATION TO STAFF</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/subjectallocationbutton">
+    {% csrf_token %}
+
+  <table width="250" border="1" class="table table-bordered">
+    <tr>
+      <th width="167" scope="row">STAFF</th>
+      <td width="67"><label for="select"></label>
+      <option value="" >
+          select staff
+      </option>
+        <select name="select" id="select"required >
+
+            {% for i in st %}
+
+                <option value="{{ i.id }}">{{ i.staffname }}</option>
+
+            {% endfor %}
+
+      </select></td>
+    </tr>
+  <tr>
+      <th scope="row">YEAR</th>
+      <td><label for="textfield2"></label>
+      <select name="textfield2" id="textfield2" required class="form-control">
+      <option value="" >
+          choose year
+      </option>
+          {% for foo in x %}
+          <option {% if foo == data.year %} selected {% endif %}>{{ foo }}</option>
+          {% endfor %}
+
+      </select>
+      </td>
+    <tr>
+      <th scope="row">SEMESTER</th>
+      <td><label for="textfield"></label>
+      <select name="textfield" id="textfield" required>
+          <option value="" >
+          choose semester
+      </option>
+          <option>1ST SEMESTER</option>
+          <option>2ND SEMESTER</option>
+          <option>3RD SEMESTER</option>
+          <option>4TH SEMESTER</option>
+          <option>5TH SEMESTER</option>
+          <option>6TH SEMESTER</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">SUBJECT</th>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2" required>
+        <option value="" >
+          select subject
+      </option>
+          {% for i in s %}
+            <option value="{{ i.id }}">{{ i.subjectname }}</option>
+          {% endfor %}
+
+      </select></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row">
+                    <button type="submit" id="form-submit" class="button">SUBMIT</button>
+                  </th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

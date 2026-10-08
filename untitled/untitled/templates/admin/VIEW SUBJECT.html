@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="699" border="1">
+    <tr>
+      <th width="43" scope="col">#</th>
+      <th width="133" scope="col">SUBJECT NAME</th>
+      <th width="118" scope="col">SUBJECT CODE</th>
+      <th width="133" scope="col">SUBJECT SYLLABUS</th>
+      <th width="116" scope="col">SEMESTER</th>
+      <th width="116" scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+
+
+
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.subjectname }}</td>
+      <td>&nbsp;{{ i.subjectcode }}</td>
+      <td>&nbsp;<a href="{{ i.subjectsyllubus }}">View</a> </td>
+      <td>&nbsp;{{ i.semester }}</td>
+      <td><p><a href="/editsub/{{ i.id }}">EDIT</a></p>
+      <p><a href="/deletesub/{{ i.id }}">DELETE</a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>

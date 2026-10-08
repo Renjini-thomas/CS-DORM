@@ -1,0 +1,58 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>TIME TABLE</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/searchsem#log">
+{% csrf_token %}
+  <table class="table table-bordered" >
+       <tr>
+      <th scope="row">CHOOSE SEMESTER</th>
+      <td>
+      <select name="textfield3" id="textfield3" required class="form-control">
+          <option value="" >
+          choose semester
+      </option>
+          <option>1ST SEMESTER</option>
+          <option>2ND SEMESTER</option>
+          <option>3RD SEMESTER</option>
+          <option>4TH SEMESTER</option>
+          <option>5TH SEMESTER</option>
+          <option>6TH SEMESTER</option>
+      </select>
+      </td>
+           <td> <button type="submit" id="form-submit" class="button">SEARCH</button></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">DAY</th>
+      <th scope="col">HOUR</th>
+      <th scope="col">SUBJECT</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data  %}
+
+
+
+    <tr>
+        <td>&nbsp;<font color="white">{{ forloop.counter }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.day }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.hour }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.SALLOCATION.SUBJECT.subjectname }}</font></td>
+        <td>
+            <p><a href="/deletetimetable/{{ i.id }}" onclick="return confirm('Are you sure to delete?')"><font color="#adff2f" class="btn btn-danger">DELETE</font></a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

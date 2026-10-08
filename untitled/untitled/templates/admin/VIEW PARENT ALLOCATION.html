@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="287" border="1">
+    <tr>
+      <th width="10" scope="col">#</th>
+      <th width="76" scope="col">PARENT</th>
+      <th width="78" scope="col">STUDENT</th>
+      <th width="95" scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+
+
+
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.PARENT }}</td>
+      <td>{{ i.STUDENT }}</td>
+      <td><p><a href="/editpalloc/{{ i.id }}">EDIT</a></p>
+      <p><a href="/deletepallo/{{ i.id }}">DELETE</a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>

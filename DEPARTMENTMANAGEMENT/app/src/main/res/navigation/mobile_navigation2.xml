@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_home"
+    android:label="HOME">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.departmentmanagement.ui.home.HomeFragment"
+        android:label="HOME"
+        tools:layout="@layout/activity_customviewtutor" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.departmentmanagement.ui.dashboard.DashboardFragment"
+        android:label="Mark"
+        tools:layout="@layout/activity_custommark" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.departmentmanagement.ui.notifications.NotificationsFragment"
+        android:label="Attendence"
+        tools:layout="@layout/activity_customattendence" />
+
+    <fragment
+        android:id="@+id/navigation_results"
+        android:name="com.example.departmentmanagement.ui.notifications.NotificationsFragment"
+        android:label="Sem Results"
+        tools:layout="@layout/activity_customviewsemresults" />
+</navigation>

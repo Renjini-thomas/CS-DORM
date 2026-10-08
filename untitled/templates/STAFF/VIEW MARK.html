@@ -1,0 +1,88 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+    <script type="text/javascript">
+var xmlHttp;
+            function adds(eid){
+               //alert(eid);
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/regno/"+eid
+                xmlHttp.onreadystatechange = stateChange;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("select2").innerHTML=xmlHttp.responseText
+
+                }
+            }
+</script>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>STUDENT MARK</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="">
+
+<table width="675" border="1" class="table table-bordered">
+    <tr>
+        <th>Choose Subject</th>
+        <td><select name="select1" id="select1" class="form-control" required onchange="return adds(this.value)">
+        <option value="">Choose subject</option>
+            {% for i in data3  %}
+                <option value="{{ i.id }}">{{ i.SUBJECT.subjectname }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+
+    <tr>
+        <th>Choose Register number</th>
+        <td><select name="select2" id="select2" class="form-control">
+
+        </select></td>
+    </tr>
+
+<tr>
+    <th colspan="2"><div align="center"><input type="submit" value="SEARCH"/></div> </th>
+</tr>
+
+</table>
+<table width="675" border="1" class="table table-bordered">
+  <tr>
+    <th width="8" scope="col">#</th>]
+    <th width="53" scope="col">MARK</th>
+    <th width="71" scope="col">OUT OF</th>
+    <th width="91" scope="col">&nbsp;</th>
+  </tr>
+    {% for i in data %}
+
+
+  <tr>
+      <td><font color="white">{{ forloop.counter }}</font></td>
+      <td><font color="white">{{ i.mark }}</font></td>
+      <td>&nbsp;<font color="white">{{ i.grade }}</font></td>
+  <td><p><a href="/editmark/{{ i.id }}"><font color="#adff2f" class="btn btn-success" style="width: 70%">EDIT</font></a></p>
+    <p><a href="/deletemark/{{ i.id }}" onclick="return confirm('Are you sure to delete?')"><font color="#adff2f" class="btn btn-danger"  style="width: 70%">DELETE</font></a></p></td>
+  </tr>
+ {% endfor %}
+
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

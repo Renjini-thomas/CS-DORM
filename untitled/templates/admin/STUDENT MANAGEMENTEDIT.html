@@ -1,0 +1,121 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>EDIT STUDENT DETAILS</b></h1></u></font></center><br/>
+<form action="/studentmanagementeditbutton/{{ data.id }}" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+    {% csrf_token %}
+  <table  border="1" class="table table-bordered">
+    <tr>
+      <th width="110" scope="row">STUDENT NAME</th>
+      <td width="458"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" value="{{ data.studentname }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">YEAR</th>
+      <td><label for="textfield2"></label>
+      <select name="textfield2" id="textfield2" required class="form-control">
+          {% for foo in x %}
+          <option {% if foo == data.year %} selected {% endif %}>{{ foo }}</option>
+          {% endfor %}
+
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">SEMERSTER</th>
+      <td><label for="textfield15"></label>
+       <select name="textfield14" id="textfield15" required class="form-control">
+          <option {% if '1ST SEMESTER' == data.semester %} selected {% endif %}>1ST SEMESTER</option>
+          <option {% if '2ND SEMESTER' == data.semester %} selected {% endif %}>2ND SEMESTER</option>
+          <option {% if '3RD SEMESTER' == data.semester %} selected {% endif %}>3RD SEMESTER</option>
+          <option {% if '4TH SEMESTER' == data.semester %} selected {% endif %}>4TH SEMESTER</option>
+          <option {% if '5TH SEMESTER' == data.semester %} selected {% endif %}>5TH SEMESTER</option>
+          <option {% if '6TH SEMESTER' == data.semester %} selected {% endif %}>6TH SEMESTER</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">DATE OF BIRTH</th>
+      <td><label for="textfield14"></label>
+      <input type="date" name="textfield6" id="textfield14" value="{{ data.dateofbirth }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">ADDMISSION NO</th>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" value="{{ data.admissionno }}" required /></td>
+    </tr>
+    <tr>
+      <th scope="row">REGISTER NO</th>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" value="{{ data.registerno }}" required/></td>
+    </tr>
+  <tr>
+      <th scope="row">GENDER</th>
+      <td><label for="textfield12"></label>
+      <select name="textfield19" id="textfield12" required class="form-control">
+          <option>MALE</option>
+          <option>FEMALE</option>
+          <option>OTHER</option>
+    </tr>
+    <tr>
+      <th scope="row">PHONE NO</th>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" value="{{ data.phoneno }}" required maxlength="10" pattern="[6-9][0-9]{9}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">PHOTO</th>
+      <td><label for="textfield6"></label>
+      <label for="fileField"></label>
+          <img src="{{ data.photo }}" height="100" width="100"/>
+      <input type="file" name="fileField" id="fileField" accept="image/*"/></td>
+    </tr>
+    <tr>
+      <th scope="row">EMAIL ID</th>
+      <td><label for="textfield7"></label>
+      <input type="text" name="textfield7" id="textfield7" value="{{ data.emailid }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">HOUSE NAME</th>
+      <td><label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8" value="{{ data.housename }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">PLACE</th>
+      <td><label for="textfield9"></label>
+      <input type="text" name="textfield9" id="textfield9" value="{{ data.place }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">POST OFFICE</th>
+      <td><label for="textfield10"></label>
+      <input type="text" name="textfield10" id="textfield10" value="{{ data.postoffice }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">PIN CODE</th>
+      <td><label for="textfield11"></label>
+      <input type="text" name="textfield11" id="textfield11" value="{{ data.pincode }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">GUARDIAN NAME</th>
+      <td><label for="textfield12"></label>
+      <input type="text" name="textfield12" id="textfield12" value="{{ data.guardianname }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">PHONE NO</th>
+      <td><label for="textfield13"></label>
+      <input type="text" name="textfield13" id="textfield13" value="{{ data.phonenumber }}" required maxlength="10" pattern="[6-9][0-9]{9}"/></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row">
+      <input type="submit" name="button" id="button" value="ADD" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

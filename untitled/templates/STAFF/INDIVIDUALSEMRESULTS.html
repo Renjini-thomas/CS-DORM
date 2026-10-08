@@ -1,0 +1,90 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+    var xmlHttp;
+    function adds(eid) {
+        if (typeof XMLHttpRequest != "undefined") {
+            xmlHttp = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        if (xmlHttp == null) {
+            alert("Browser does not support XMLHTTP Request")
+            return;
+        }
+        var url = "/url/" + eid
+        xmlHttp.onreadystatechange = stateChange;
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+
+    function stateChange() {
+        if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
+            document.getElementById("sub").innerHTML = xmlHttp.responseText
+        }
+    }
+
+    function toggleSemesterDropdown() {
+        var typeDropdown = document.getElementById("select");
+        var semesterDropdown = document.getElementById("select_semester");
+
+        if (typeDropdown.value == "PROVISIONAL" || typeDropdown.value == "ORIGINAL") {
+            semesterDropdown.style.display = "none";
+        } else {
+            semesterDropdown.style.display = "block";
+        }
+    }
+</script>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>RESULTS</b></h1></u></font></center><br/>
+<form action="/externalmarkbutton/{{ s }}" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+    <table width="355" height="407" border="1">
+        <tr>
+            <th colspan="2" scope="row">UNIVERSITY RESULTS</th>
+        </tr>
+        <tr>
+            <th width="152" scope="row"> TYPE</th>
+            <td width="187">
+                <select name="select3" id="select" class="form-control" onchange="toggleSemesterDropdown()">
+                    <option>SEM WISE</option>
+                    <option>IMP/SUPPLY</option>
+                    <option>PROVISIONAL</option>
+                    <option>ORIGINAL</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th width="152" scope="row"> SEMESTER</th>
+            <td width="187">
+                <select name="select" id="select_semester" class="form-control">
+                    <option>1ST SEMESTER</option>
+                    <option>2ND SEMESTER</option>
+                    <option>3RD SEMESTER</option>
+                    <option>4TH SEMESTER</option>
+                    <option>5TH SEMESTER</option>
+                    <option>6TH SEMESTER</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">FILE</th>
+            <td>
+                <input type="file" name="fileField" id="fileField" class="form-control" required />
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="ADD" /></th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

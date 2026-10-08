@@ -1,0 +1,80 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>ADD TIME TABLE</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/timetablemanagementbutton">
+    {% csrf_token %}
+  <table class="table table-bordered">
+   <tr>
+      <th scope="row">SEMERSTER</th>
+      <td>
+      <select name="textfield14" id="textfield15" required class="form-control">
+        <option value="" >
+          choose semester
+      </option>
+          <option>1ST SEMESTER</option>
+          <option>2ND SEMESTER</option>
+          <option>3RD SEMESTER</option>
+          <option>4TH SEMESTER</option>
+          <option>5TH SEMESTER</option>
+          <option>6TH SEMESTER</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th width="92" scope="row">DAY</th>
+      <td width="206">
+        <select name="select" id="select" required class="form-control">
+            <option value="" >
+          choose day
+      </option>
+            <option>MONDAY</option>
+            <option>TUESDAY</option>
+            <option>WEDNESDAY</option>
+            <option>THURSDAY</option>
+            <option>FRIDAY</option>
+
+
+      </select>        </td>
+    </tr>
+    <tr>
+      <th scope="row">HOUR</th>
+      <td>
+      <select name="textfield2" id="textfield2" required class="form-control">
+          <option value="" >
+          choose hour
+      </option>
+          <option>1st Hour</option>
+          <option>2nd Hour</option>
+          <option>3rd Hour</option>
+          <option>4th Hour</option>
+          <option>5th Hour</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">SUBJECT</th>
+      <td>
+        <select name="select2" id="select2" required class="form-control">
+        <option value="" >
+          choose subject
+      </option>
+            {% for i in t %}
+                <option value="{{ i.id }}">{{ i.SUBJECT.subjectname }}</option>
+
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"> <button type="submit" id="form-submit" class="button">ADD</button></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

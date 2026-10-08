@@ -1,0 +1,35 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>VIEW EVENT</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="">
+  <table width="450" border="1" class="table table-bordered">
+    <tr>
+      <th width="42" scope="col">#</th>
+      <th width="111" scope="col">EVENT NAME</th>
+      <th width="114" scope="col">EVENT DATE</th>
+      <th width="75" scope="col">PHOTO</th>
+    </tr>
+      {% for i in data %}
+
+
+
+    <tr>
+      <td>&nbsp;<font color="white"> {{ forloop.counter }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.eventname }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.eventdate }}</font></td>
+      <td>&nbsp;<a href="{{ i.eventphoto }}"> <img src="{{ i.eventphoto }}" height="100" width="100" alt=""/></a></td>
+    </tr>
+     {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

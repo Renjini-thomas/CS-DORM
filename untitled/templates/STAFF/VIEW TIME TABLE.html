@@ -1,0 +1,73 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <style type="text/css">
+        td{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>TIME TABLE</b></h1></u></font></center><br/>
+ <form id="form1" name="form1" method="post" action="">
+<table width="570" height="261" border="1" class="table table-bordered">
+  <tr>
+    <th width="108" scope="col">&nbsp;</th>
+    <th width="72" scope="col">1</th>
+    <th width="66" scope="col">2</th>
+    <th width="63" scope="col">3</th>
+    <th width="138" scope="col">&nbsp;</th>
+    <th width="38" scope="col">4</th>
+    <th width="39" scope="col">5</th>
+  </tr>
+  <tr>
+    <th scope="row">MON</th>
+    <td>&nbsp;{{ m.0 }}</td>
+    <td>&nbsp;{{ m.1 }}</td>
+    <td>{{ m.2 }}</td>
+    <td rowspan="5"><div align="center" style="color: white"><br><br><br><br>BREAK</div></td>
+    <td>{{ m.3 }}</td>
+    <td>&nbsp;{{ m.4 }}</td>
+  </tr>
+  <tr>
+    <th scope="row">TUES</th>
+    <td>&nbsp;{{ t.0 }}</td>
+    <td>&nbsp;{{ t.1 }}</td>
+    <td>&nbsp;{{ t.2 }}</td>
+    <td>&nbsp;&nbsp;{{ t.3 }}</td>
+    <td>&nbsp;{{ t.4 }}</td>
+  </tr>
+  <tr>
+    <th scope="row">WED</th>
+    <td>&nbsp;{{ w.0 }}</td>
+    <td>&nbsp;{{ w.1 }}</td>
+    <td>&nbsp;{{ w.2 }}</td>
+    <td>&nbsp;{{ w.3 }}</td>
+    <td>&nbsp;{{ w.4 }}</td>
+  </tr>
+  <tr>
+    <th scope="row">THUR</th>
+    <td>&nbsp;{{ th.0 }}</td>
+    <td>&nbsp;{{ th.1 }}</td>
+    <td>&nbsp;{{ th.2 }}</td>
+    <td>&nbsp;{{ th.3 }}</td>
+    <td>&nbsp;{{ th.4 }}</td>
+  </tr>
+  <tr>
+    <th scope="row">FRIDAY</th>
+    <td>{{ f.0 }}</td>
+    <td>&nbsp;{{ f.1 }}</td>
+    <td>&nbsp;{{ f.2 }}</td>
+    <td>&nbsp;{{ f.3 }}</td>
+    <td>&nbsp;{{ f.4 }}</td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

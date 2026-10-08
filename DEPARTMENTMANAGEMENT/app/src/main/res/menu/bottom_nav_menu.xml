@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/homeeee"
+        android:title="Home" />
+    <item
+        android:id="@+id/navigation_t"
+        android:icon="@drawable/training"
+        android:title="Tutor" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/immigration"
+        android:title="Mark" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/question"
+        android:title="Attendence" />
+
+    <item
+        android:id="@+id/navigation_mark"
+        android:icon="@drawable/assessment"
+        android:title="Sem Result" />
+
+</menu>

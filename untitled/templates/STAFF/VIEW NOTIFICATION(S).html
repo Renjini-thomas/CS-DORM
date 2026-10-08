@@ -1,0 +1,36 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>VIEW NOTIFICATIONS</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="">
+  <table width="622" border="1" class="table table-bordered">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">TITLE</th>
+      <th scope="col">DISCREPTION</th>
+      <th scope="col">LINK</th>
+      <th scope="col">DATE</th>
+    </tr>
+      {% for i in data %}
+
+
+    <tr>
+        <td><font color="white">&nbsp;{{ forloop.counter }}</font></td>
+        <td><font color="white">{{ i.title }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.discription }}</font></td>
+        <td>&nbsp;<font color="white"><a href="{{ i.link }}" >click here</a></font></td>
+        <td><font color="white">{{ i.date }}</font></td>
+    </tr>
+  {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

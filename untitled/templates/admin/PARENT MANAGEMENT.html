@@ -1,0 +1,46 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>ADD PARENT DETAILS</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/parentmanagementbutton">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <th scope="row">NAME</th>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" required/></td>
+    </tr>
+      <tr>
+      <th scope="row">OCCUPATION</th>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield5" id="textfield" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">PHN NO</th>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" required maxlength="10" pattern="[6-9][0-9]{9}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">EMAIL ID</th>
+      <td><label for="textfield3"></label>
+      <input type="email" name="textfield3" id="textfield3" required/></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"> <div class="col-md-12">
+                  <fieldset>
+                    <button type="submit" id="form-submit" class="button">ADD</button>
+                  </fieldset>
+                </div> </th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

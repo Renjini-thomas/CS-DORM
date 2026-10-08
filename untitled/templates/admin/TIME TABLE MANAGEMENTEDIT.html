@@ -1,0 +1,49 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>EDIT TIME TABLE</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/timetablemanagementeditbutton/{{ data.id }}">
+    {% csrf_token %}
+  <table width="314" border="1" class="table table-bordered">
+    <tr>
+      <th width="92" scope="row">DAY</th>
+      <td width="206"><label for="select"></label>
+        <select name="select" id="select" required>
+
+
+      </select>        <label for="textfield"></label></td>
+    </tr>
+    <tr>
+      <th scope="row">HOUR</th>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" value="{{ data.hour }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">SUBJECT</th>
+      <td><label for="textfield3"></label>
+        <label for="select2"></label>
+        <select name="select2" id="select2" required>
+            {% for i in t %}
+                <option>{{ i.subjectname }}</option>
+
+            {% endfor %}
+
+
+      </select></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="ADD
+      " /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

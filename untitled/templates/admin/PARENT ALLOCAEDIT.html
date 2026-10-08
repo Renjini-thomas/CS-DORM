@@ -1,0 +1,39 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>EDIT PARENT ALLOCATION</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/parentallocationeditbutton/{{ data.id }}">
+    {% csrf_token %}
+</form>
+<table width="200" border="1" class="table table-bordered">
+  <tr>
+    <th scope="row">PARENT</th>
+    <td><label for="select"></label>
+      <select name="select" id="select" ><option value="{{ data.PARENT }}" required>
+      </option>
+    </select></td>
+  </tr>
+  <tr>
+    <th scope="row">STUDENT</th>
+    <td><form id="form2" name="form2" method="post" action="">
+      <label for="select2"></label>
+      <select name="select2" id="select2" required><option value="{{ data.STUDENT }}"></option>
+      </select>
+    </form></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><form id="form3" name="form3" method="post" action="">
+      <input type="submit" name="button" id="button" value="ADD" />
+    </form></th>
+  </tr>
+</table>
+</body>
+</html>
+{% endblock %}

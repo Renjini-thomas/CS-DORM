@@ -1,0 +1,73 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>CLASS IN CHARGE</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/incsearch#log">
+{% csrf_token %}
+<table class="table table-bordered">
+
+ <tr>
+      <th scope="row">Search Here </th>
+      <td>
+      <input name="textfield2" id="textfield2" required class="form-control"/></td>
+    </tr>
+
+    <tr>
+      <th colspan="2" scope="row"> <div class="col-md-12">
+                  <fieldset>
+                    <button type="submit" id="form-submit" class="button">SEARCH HERE</button>
+                  </fieldset>
+                </div> </th>
+    </tr>
+</table>
+  <table width="1267" border="1" class="table table-bordered">
+    <tr>
+      <th width="30" scope="col">#</th>
+      <th width="106" scope="col">STUDENT NAME</th>
+      <th width="68" scope="col">YEAR & SEMESTER</th>
+        <th width="68" scope="col">DATE OF BIRTH</th>
+      <th width="68" scope="col">ADMISSION NO:</th>
+      <th width="68" scope="col">REGISTER NO:</th>
+      <th width="68" scope="col">PHONE NO:</th>
+      <th width="68" scope="col">EMAIL ID</th>
+      <th width="68" scope="col">ADDRESS</th>
+      <th width="69" scope="col">&nbsp;MARK</th>
+      <th width="69" scope="col">&nbsp;INFO</th>
+    </tr>
+      {% for i in data %}
+
+
+
+    <tr>
+        <td><font color="white">{{ forloop.counter }}</font></td>
+        <td><font color="white"><img src="{{ i.photo }}" height="100" width="100" alt=""/><br>{{ i.studentname }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.year }}<br>{{ i.semester }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.dateofbirth }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.admissionno }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.registerno }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.phoneno }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.emailid }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.housename }}<br>&nbsp;{{ i.place }}<br>{{ i.postoffice }}<br/>{{ i.pincode }}</font></td>
+        <td><a href="/externalmarkuniv/{{ i.id }}#log" rel="sponsored" class="btn btn-success">ADD SEM WISE RESULTS</a> <br><br>
+            <a href="/viewexternal/{{ i.id }}#log" rel="sponsored" class="btn btn-danger">VIEW SEM WISE RESULTS</a><br>
+        </td>
+        <td>
+            <a href="/moredetails/{{ i.id }}#log" rel="sponsored" class="btn btn-primary">ADD MORE INFO</a>
+            <br>
+            <br>
+            <a href="/viewmoredetails/{{ i.id }}#log" rel="sponsored" class="btn btn-warning">VIEW MORE INFO</a><br>
+        </td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

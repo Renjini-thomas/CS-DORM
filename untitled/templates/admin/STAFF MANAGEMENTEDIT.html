@@ -1,0 +1,57 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>EDIT STAFF DETAILS</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/staffmanagementeditbutton/{{ data.id }}" enctype="multipart/form-data">
+    {% csrf_token %}
+  <table width="250" border="1" class="table table-bordered">
+    <tr>
+      <th width="172" scope="row">STAFF NAME</th>
+      <td width="62"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" value="{{ data.staffname }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">PHOTO</th>
+        <img src="{{ data.photo }}" height="100" width="100"/>
+      <td>&nbsp;<label for="input"></label><input type="file" name="file" accept="image/*" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">QUALIFICATION</th>
+      <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" required>{{ data.qualification }}</textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">MOBILE NO</th>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" value="{{ data.number }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">EMAIL</th>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" value="{{ data.email}}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">EXPERIANCE</th>
+      <td><label for="textarea2"></label>
+      <textarea name="textarea2" id="textarea2" cols="45" rows="5"  required>{{ data.staffexperiance }}</textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">POST</th>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4"  value="{{ data.post }}" required/></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="ADD" id="ADD" value="ADD" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

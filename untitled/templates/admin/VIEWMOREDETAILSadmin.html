@@ -1,0 +1,96 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<style>
+    th,td{
+        color: white;
+    }
+</style>
+<body>
+<h3><b><font color="#ffd700" > <u>ADDITIONAL DETAILS</u></font></b></h3>
+<form id="form1" name="form1" method="post" action="">
+  <table width="311" border="1" class="table table-bordered">
+    <tr>
+      <th width="146" scope="row">AADHAR NO.</th>
+      <td width="149">{{ data.aadharno }}</td>
+    </tr>
+    <tr>
+      <th scope="row">BLOOD GROUP</th>
+      <td>{{ data.bloodg }}</td>
+    </tr>
+    <tr>
+      <th scope="row">HEIGHT</th>
+      <td>{{ data.height }}</td>
+    </tr>
+    <tr>
+      <th scope="row">WEIGHT</th>
+      <td>{{ data.weight }}</td>
+    </tr>
+    <tr>
+      <th scope="row">RELIGION</th>
+      <td>{{ data.religion }}</td>
+    </tr>
+    <tr>
+      <th scope="row">CASTE</th>
+      <td>{{ data.caste }}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">ANNUAL INCOME</th>
+      <td>{{ data.annincome }}</td>
+    </tr>
+    <tr>
+      <th scope="row">RATION CATEGORY</th>
+      <td>{{ data.rationcard }}</td>
+    </tr>
+    <tr>
+      <th scope="row">SKILLS</th>
+      <td>{{ data.skills }}</td>
+    </tr>
+    <tr>
+      <th scope="row">10th PERCENTAGE</th>
+      <td>{{ data.ten }}</td>
+    </tr>
+    <tr>
+      <th scope="row">12th PERCENTAGE</th>
+      <td>{{ data.plustwo }}</td>
+    </tr>
+    <tr>
+      <th scope="row">LANGUAGES KNOWN</th>
+      <td>{{ data.languages }}</td>
+    </tr>
+
+  </table>
+</form>
+<br/>
+<h3><b><font color="#ffd700" > <u>RESULTS</u></font></b></h3>
+<form id="form1" name="form1" method="post" action="">
+  <table width="367" border="1" class="table table-bordered">
+  <tr>
+    <th width="14" scope="col">#</th>
+    <th width="90" scope="col"> SEMESTER</th>
+    <th width="86" scope="col"> TYPE</th>
+    <th width="86" scope="col">FILE</th>
+
+  </tr>
+      {% for i in data2 %}
+  <tr>
+      <td>&nbsp;<font color="white">{{ forloop.counter }}</font></td>
+      <td>&nbsp;<font color="white">{{ i.semester }}</font></td>
+      <td><font color="white">&nbsp;{{ i.type }}</font></td>
+    <td><font color="white"><a href="{{ i.file }}" class="btn btn-success">CLICK HERE</a></font></td>
+
+
+  </tr>
+      {% endfor %}
+  </table>
+</form>
+
+</body>
+</html>
+{% endblock %}

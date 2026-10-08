@@ -1,0 +1,50 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>COMPLAINTS</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th width="38" scope="col">#</th>
+      <th width="138" scope="col">TITLE</th>
+      <th width="88" scope="col">DATE</th>
+      <th width="88" scope="col">DESCRIPTION</th>
+      <th width="88" scope="col">REPLY</th>
+      <th width="88" scope="col">REPLY DATE</th>
+{#      <th width="90" scope="col">&nbsp;</th>#}
+    </tr>
+      {% for i in data %}
+
+
+
+
+    <tr>
+      <td><font color="white">{{ forloop.counter }}</font> </td>
+      <td>&nbsp;<font color="white">{{ i.ctitle }}</font> </td>
+      <td><font color="white">{{ i.cdate }}</font> </td>
+      <td><font color="white">{{ i.cdescription }}
+
+      </font> </td>
+
+        {% if i.creply == 'pending' %}
+      <td><font color="white"><p><a href="/replymanagement/{{ i.id }}">Reply</a></p></font> </td>
+            {% else %}
+            <td><font color="white">{{ i.creply }}</font> </td>
+      <td><font color="white">{{ i.rdate }}</font> </td>
+          {% endif %}
+{#      <p><a href="/deletecomplaints/{{ i.id }}">DELETE</a></p>#}
+
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

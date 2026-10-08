@@ -1,0 +1,65 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>MARK DETAILS</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/searchmark">
+{% csrf_token %}
+
+<table class="table table-bordered">
+<tr><th>Choose year</th>
+        <td><select name="select" id="select">
+            {% for foo in x %}
+          <option>{{ foo }}</option>
+          {% endfor %}
+
+        </select></td>
+  <th>Choose semester</th>
+        <td><select name="select1" id="select1">
+            <option>1ST SEMESTER</option>
+          <option>2ND SEMESTER</option>
+          <option>3RD SEMESTER</option>
+          <option>4TH SEMESTER</option>
+          <option>5TH SEMESTER</option>
+          <option>6TH SEMESTER</option>
+        </select></td></tr>
+    <tr>
+        <tr>
+        <th></th>
+        <th> <button type="submit" id="form-submit" class="button">SEARCH</button></th>
+    </tr>
+  <tr>
+    <th width="13" scope="col">#</th>
+    <th width="74" scope="col">STUDENT</th>
+    <th width="103" scope="col">ALLOCATION</th>
+    <th width="86" scope="col">SEMESTER</th>
+    <th width="80" scope="col">TYPE</th>
+    <th width="48" scope="col">SUBJECT</th>
+    <th width="48" scope="col">MARK</th>
+    <th width="50" scope="col">OUT OF</th>
+  </tr>
+    {% for i in data %}
+
+
+  <tr>
+      <td><font color="white">{{ forloop.counter }}</font></td>
+      <td><font color="white">{{ i.STUDENT.studentname }}</font></td>
+      <td><font color="white">{{ i.SALLOCATION.STAFF.staffname}}</font></td>
+      <td><font color="white">{{ i.semester }}</font></td>
+      <td><font color="white">{{ i.type }}</font></td>
+      <td>&nbsp;<font color="white">{{ i.SALLOCATION.SUBJECT.subjectname }}</font></td>
+      <td><font color="white">{{ i.mark }}</font></td>
+      <td>&nbsp;<font color="white">{{ i.grade }}</font></td>
+  </tr>
+ {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

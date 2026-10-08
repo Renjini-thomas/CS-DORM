@@ -1,0 +1,32 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>MARK MANAGEMENT</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/markeditbutton/{{ data.id }}">
+    {% csrf_token %}
+  <table width="461" border="1" class="table table-bordered">
+    <tr>
+      <th scope="row">MARK</th>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" value="{{ data.mark }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">GRADE</th>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" value="{{ data.grade }}"/></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="ADD" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

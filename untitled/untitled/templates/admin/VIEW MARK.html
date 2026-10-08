@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+</form>
+<table width="554" border="1">
+  <tr>
+    <th width="13" scope="col">#</th>
+    <th width="74" scope="col">STUDENT</th>
+    <th width="103" scope="col">ALLOCATION</th>
+    <th width="86" scope="col">SEMESTER</th>
+    <th width="80" scope="col">TYPE</th>
+    <th width="48" scope="col">SUBJECT</th>
+    <th width="48" scope="col">MARK</th>
+    <th width="50" scope="col">GRADE</th>
+  </tr>
+    {% for i in data %}
+
+
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.STUDENT }}</td>
+    <td>{{ i.SALLOCATION }}</td>
+    <td>{{ i.semester }}</td>
+    <td>{{ i.type }}</td>
+    <td>&nbsp;{{ i.SUBJECT }}</td>
+    <td>{{ i.mark }}</td>
+    <td>&nbsp;{{ i.grade }}</td>
+  </tr>
+ {% endfor %}
+</table>
+</body>
+</html>

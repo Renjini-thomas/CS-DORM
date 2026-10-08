@@ -1,0 +1,42 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>ALLOCATED SUBJECTS</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="">
+  <table width="347" border="1" class="table table-bordered">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">SUBJECT</th>
+      <th scope="col">SEM</th>
+      <th scope="col">SUBJECT CODE</th>
+      <th scope="col">SYLLABUS</th>
+    </tr>
+      {% for i in data %}
+
+
+
+    <tr>
+        <td><font color="white">{{ forloop.counter }}</font></td>
+        <td><font color="white">{{ i.SUBJECT.subjectname }}</font></td>
+        <td><font color="white">{{ i.semester }}</font></td>
+        <td><font color="white">{{ i.SUBJECT.subjectcode }}</font></td>
+        <td><font color="white"><a href="{{ i.SUBJECT.subjectsyllubus }}">View</a> </font></td>
+
+      <th scope="row"><a href="/materialmanagement/{{ i.id }}">MATERIAL MANAGEMENT</a></th>
+
+      <th scope="row"><a href="viewmaterial/{{ i.id }}">VIEW MATERIALS</a></th>
+
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,133 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>ADD STUDENT DETAILS</b></h1></u></font></center><br/>
+<form action="/studentmanagementbutton" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+    {% csrf_token %}
+
+
+
+
+  <table width="584" border="1" class="table table-bordered">
+    <tr>
+      <th width="110" scope="row">STUDENT NAME</th>
+      <td width="458"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">YEAR</th>
+      <td><label for="textfield2"></label>
+      <select name="textfield2" id="textfield2" required class="form-control">
+      <option value="">choose year</option>
+      {% for foo in x %}
+
+      <option>{{ foo }}</option>
+      {% endfor %}
+
+
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">SEMERSTER</th>
+      <td><label for="textfield15"></label>
+      <select name="textfield14" id="textfield15" required class="form-control">
+          <option value="">Choose semester</option>
+          <option>1ST SEMESTER</option>
+          <option>2ND SEMESTER</option>
+          <option>3RD SEMESTER</option>
+          <option>4TH SEMESTER</option>
+          <option>5TH SEMESTER</option>
+          <option>6TH SEMESTER</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">DATE OF BIRTH</th>
+      <td><label for="textfield14"></label>
+      <input type="date" name="textfield6" id="textfield14" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">ADDMISSION NO</th>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" required maxlength="4"/></td>
+    </tr>
+    <tr>
+      <th scope="row">REGISTER NO</th>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4"required maxlength="10" /></td>
+    </tr>
+      <tr>
+      <th scope="row">GENDER</th>
+      <td><label for="textfield12"></label>
+      <select name="textfield19" id="textfield12" required class="form-control">
+          <option value="" >
+          choose gender
+      </option>
+          <option>MALE</option>
+          <option>FEMALE</option>
+          <option>OTHER</option>
+    </tr>
+    <tr>
+      <th scope="row">PHONE NO</th>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" required  maxlength="10" pattern="[6-9][0-9]{9}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">PHOTO</th>
+      <td><label for="textfield6"></label>
+      <label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">EMAIL ID</th>
+      <td><label for="textfield7"></label>
+      <input type="email" name="textfield7" id="textfield7" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">HOUSE NAME</th>
+      <td><label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8" required /></td>
+    </tr>
+    <tr>
+      <th scope="row">PLACE</th>
+      <td><label for="textfield9"></label>
+      <input type="text" name="textfield9" id="textfield9"required /></td>
+    </tr>
+    <tr>
+      <th scope="row">POST OFFICE</th>
+      <td><label for="textfield10"></label>
+      <input type="text" name="textfield10" id="textfield10" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">PIN CODE</th>
+      <td><label for="textfield11"></label>
+      <input type="text" name="textfield11" id="textfield11"required maxlength="6" /></td>
+    </tr>
+    <tr>
+      <th scope="row">GUARDIAN NAME</th>
+      <td><label for="textfield12"></label>
+      <input type="text" name="textfield12" id="textfield12" required /></td>
+    </tr>
+
+    <tr>
+      <th scope="row">PHONE NO</th>
+      <td><label for="textfield13"></label>
+      <input type="text" name="textfield13" id="textfield13" required maxlength="10" pattern="[6-9][0-9]{9}" /></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row">
+      <fieldset>
+                    <button type="submit" id="form-submit" class="button">SUBMIT</button>
+                  </fieldset>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

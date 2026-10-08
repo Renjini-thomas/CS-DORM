@@ -1,0 +1,75 @@
+{%  extends 'STAFF/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>STUDENT MARK</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/allocatedclassmark">
+{% csrf_token %}
+<table>
+    <tr>
+        <th>Choose subject</th>
+        <td><select name="select1" id="select1">
+            {% for i in data2  %}
+                <option value="{{ i.id }}">{{ i.SUBJECT.subjectname }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <th></th>
+        <th> <input type="submit" id="form-submit" name="b" class="button" value="SEARCH"></th>
+    </tr>
+</table>
+  <table width="1267" border="1" class="table table-bordered">
+    <tr>
+      <th width="30" scope="col">#</th>
+      <th width="106" scope="col">STUDENT NAME</th>
+      <th width="68" scope="col">YEAR & SEMESTER</th>
+      <th width="68" scope="col">DATE OF BIRTH</th>
+      <th width="68" scope="col">ADMISSION NO:</th>
+      <th width="68" scope="col">REGISTER NO:</th>
+      <th width="68" scope="col">PHONE NO: & EMAIL ID</th>
+      <th width="68" scope="col">ADDRESS</th>
+      <th width="69" scope="col">GUARDIAN DETAILS</th>
+        <th width="69" scope="col">INTERNAL MARK</th>
+        <th width="69" scope="col">OUT OF</th>
+    </tr>
+      {% for i in data  %}
+
+
+
+    <tr>
+      <td>&nbsp;<font color="white"> {{ forloop.counter }}</font></td>
+        <td>&nbsp;<img src="{{ i.photo }}" height="100" width="100" alt=""/><br><font color="white" >{{ i.studentname }}</font></td></td>
+        <td><font color="white">{{ i.year }}<br>{{ i.semester }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.dateofbirth }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.admissionno }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.registerno }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.phoneno }}<br>{{ i.emailid }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.housename }}<br>{{ i.place }}<br>{{ i.postoffice }}<br>{{ i.pincode }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.guardianname }}<br>{{ i.phonenumber }}</font></td>
+    <td><input type="hidden" name="sid" value="{{ i.id }}"/><input type="textfield" name="e"/></td>
+    <td><select name="g" class="form-control">
+        <option>40</option>
+        <option>35</option>
+        <option>30</option>
+        <option>25</option>
+        <option>20</option>
+        <option>15</option>
+        <option>10</option>
+    </select> </td>
+    </tr>
+      {% endfor %}
+  <tr>
+      <th> <input value="SEND" type="submit" name="b" id="form-submit" class="button"/></th>
+  </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,38 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b>VIEW PARENT ALLOCATION</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th width="10" scope="col">#</th>
+      <th width="76" scope="col">PARENT</th>
+      <th width="76" scope="col">EMAIL</th>
+      <th width="76" scope="col">PHONE</th>
+      <th width="95" scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+
+
+
+    <tr>
+        <td><font color="white">{{ forloop.counter }}</font></td>
+        <td><font color="white">{{ i.PARENT.parentname }}</font></td>
+        <td><font color="white">{{ i.PARENT.emailid }}</font></td>
+        <td><font color="white">{{ i.PARENT.phoneno }}</font></td>
+        <td>
+            <p><a href="/deletepallo/{{ i.id }}" onclick="return confirm('Are you sure to delete?')"><font color="#adff2f" class="btn btn-danger">DELETE</font></a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

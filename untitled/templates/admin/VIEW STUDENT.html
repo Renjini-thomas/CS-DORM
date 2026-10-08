@@ -1,0 +1,79 @@
+{%  extends 'admin/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center><font color="#ffd700" ><u><h1><b> STUDENT DETAILS</b></h1></u></font></center><br/>
+<form id="form1" name="form1" method="post" action="/viewstudent_post#log">
+{% csrf_token %}
+  <table  width="584" border="1" class="table table-bordered">
+
+      <tr>
+      <td>
+   <select name="textfield2" id="textfield2" required class="form-control">
+        <option value="" >
+          choose year
+      </option>
+      {% for foo in y %}
+      <option>{{ foo }}</option>
+      {% endfor %}
+
+
+      </select>
+          </td>
+      <td><input type="submit" class="btn btn-success"/></td>
+      </tr>
+
+  </table>
+  <table  width="584" border="1" class="table table-bordered">
+    <tr>
+      <th width="30" scope="col">#</th>
+      <th width="106" scope="col">STUDENT NAME</th>
+      <th width="68" scope="col">YEAR & SEMESTER</th>
+        <th width="68" scope="col">DATE OF BIRTH</th>
+      <th width="68" scope="col">ADMISSION NO:</th>
+      <th width="68" scope="col">REGISTER NO:</th>
+      <th width="68" scope="col">GENDER</th>
+      <th width="68" scope="col">PHONE NO:</th>
+      <th width="68" scope="col">EMAIL ID</th>
+      <th width="68" scope="col">ADDRESS</th>
+{#      <th width="69" scope="col">GUARDIAN DETAILS</th>#}
+
+      <th width="69" scope="col">&nbsp;MANAGE</th>
+      <th width="69" scope="col">&nbsp;PARENT INFO</th>
+    </tr>
+      {% for i in data %}
+
+
+
+    <tr>
+        <td><font color="white">{{ forloop.counter }}</font></td>
+        <td><font color="white"><img src="{{ i.photo }}" height="100" width="100" alt=""/><br>{{ i.studentname }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.year }}<br>{{ i.semester }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.dateofbirth }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.admissionno }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.registerno }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.gen }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.phoneno }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.emailid }}</font></td>
+        <td>&nbsp;<font color="white">{{ i.housename }}<br>&nbsp;{{ i.place }}<br>{{ i.postoffice }}<br/>{{ i.pincode }}</font></td>
+
+
+{#        <td>&nbsp;<font color="white">{{ i.guardianname }}<br/>{{ i.phonenumber }}</font></td>#}
+
+        <td><p><a href="/editstud/{{ i.id }}#log"><font color="#adff2f" class="btn btn-success" style="width: 100%">EDIT</font></a></p>
+{#            <p><a href="/deletestudent/{{ i.id }}" onclick="return confirm('Are you sure to delete?')"><font color="#adff2f" class="btn btn-danger">DELETE</font></a></p></td>#}
+ <td><p><a href="/parentallocation/{{ i.id }}#log"><font color="#adff2f" class="btn btn-success" style="width: 100%">ADD</font></a></p>
+            <p><a href="/viewpallocation/{{ i.id }}#log"><font color="#adff2f" class="btn btn-danger">VIEW</font></a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
